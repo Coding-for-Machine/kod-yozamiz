@@ -10,8 +10,8 @@ class Quiz(models.Model):
     body = models.TextField()
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
     # module = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    test_count = models.IntagerField()
-    test_vaqti = models.IntagerField()
+    test_count = models.IntegerField()
+    test_vaqti = models.IntegerField()
 
 
     def __str__(self):
@@ -30,6 +30,6 @@ class Questions(models.Model):
 class Answer(models.Model):
     questions = models.ForeignKey(Questions, on_delete=models.CASCADE)
     title = models.TextField()
-    is_correct = models.BoolenField(default=False)
+    is_correct = models.BooleanField(default=False)
     def __str__(self):
         return f"Sabol:-->{self.title[20]}"
